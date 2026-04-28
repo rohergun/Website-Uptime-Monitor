@@ -15,7 +15,6 @@ import java.util.UUID;
 @Setter
 public class MonitoredSite {
     @Id
-    @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
@@ -25,14 +24,14 @@ public class MonitoredSite {
     @Column(nullable = false)
     private String url;
 
-    @Column(nullable = false)
-    private int checkIntervalsPerMinute;
+    private int checkIntervalsMinute;
 
-    @Column(nullable = false)
     private boolean isActive;
 
     @Column(nullable = false)
     private LocalDateTime createdAt;
+
+    // Todo FK user_id
 
     @PrePersist
     protected void onCreate(){
